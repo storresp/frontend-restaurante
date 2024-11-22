@@ -278,13 +278,13 @@ document.addEventListener('DOMContentLoaded', function () {
         cliente: {
           nombre: nombreCliente,
           telefono: telefonoCliente,
-          direccion: direccionCliente,
+          direccion: direccionCliente,  
         },
         platos: contarPlatos(cart)
       };
 
       try {
-        const response = await fetch('/api/pedidos', {  // Cambia esta URL por la ruta de tu API Laravel
+        const response = await fetch('https://sakura-stp-pnt20232-unisabana.onrender.com/api/pedidos', {  // Cambia esta URL por la ruta de tu API Laravel
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
