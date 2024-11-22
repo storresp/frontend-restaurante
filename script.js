@@ -262,6 +262,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const nombreCliente = document.getElementById('nombreCliente').value.trim();
       const telefonoCliente = document.getElementById('telefonoCliente').value.trim();
       const direccionCliente = document.getElementById('direccionCliente').value.trim();
+      const emailCliente = document.getElementById('emailCliente').value.trim();  // Agregando el correo electrónico
+      const notasCliente = document.getElementById('notasCliente').value.trim();  // Agregando notas adicionales del cliente
 
       if (!nombreCliente || !telefonoCliente || !direccionCliente) {
         alert('Por favor, completa todos los campos.');
@@ -278,40 +280,28 @@ document.addEventListener('DOMContentLoaded', function () {
         cliente: {
           nombre: nombreCliente,
           telefono: telefonoCliente,
-          direccion: direccionCliente
+          direccion: direccionCliente,
+          email: emailCliente,  // Añadiendo el correo electrónico
+          notas: notasCliente  // Añadiendo las notas del cliente
         },
-        pedido: cart
+        platos: contarPlatos(cart)
       };
-      
+
       try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbwZ9JIrW-FLEe43WL84XRcbIb0blzf9y0sy2L8kLvK73OXYJqMBRFUDybr_qF_YMy4_UA/exec', {
+        const response = await fetch('/api/pedidos', {  // Cambia esta URL por la ruta de tu API Laravel
           method: 'POST',
-          mode: 'no-cors',
           headers: {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin' : '*'
+            'Accept': 'application/json'
           },
           body: JSON.stringify(datosPago)
         });
 
-        if (!response || response.type === 'opaque') {
-          console.warn('Advertencia: Respuesta opaca debido a las políticas de CORB. Ignorando el error.');
-          alert('¡Pedido realizado con éxito!');
-          vaciarCarrito();
-          window.location.href = 'index.html';
-          return;
-        }
-
-        if (!response.ok) {
-          throw new Error(`Error en la solicitud: ${response.statusText}`);
-        }
-
         const result = await response.json();
 
-        if (result.result === 'success') {
+        if (result.success) {
           alert('¡Pedido realizado con éxito!');
           vaciarCarrito();
-
           window.location.href = 'index.html';
         } else {
           throw new Error('Error al procesar el pedido.');
@@ -322,4 +312,29 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  // Función para contar las cantidades de cada plato en el carrito
+  function contarPlatos(cart) {
+    const platosContados = [];
+    
+    cart.forEach(item => {
+      const index = platosContados.findIndex(plato => plato.id === item.id);
+      if (index === -1) {
+        platosContados.push({
+          id: item.id,
+          nombre: item.nombre,
+          precio: item.precio,
+          pivot: {
+            cantidad: 1
+          }
+        });
+      } else {
+        platosContados[index].pivot.cantidad += 1;
+      }
+    });
+
+    return platosContados;
+  }
+
+  // Resto del código sin cambios
 });
