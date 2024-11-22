@@ -262,9 +262,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const nombreCliente = document.getElementById('nombreCliente').value.trim();
       const telefonoCliente = document.getElementById('telefonoCliente').value.trim();
       const direccionCliente = document.getElementById('direccionCliente').value.trim();
-      const emailCliente = document.getElementById('emailCliente').value.trim();  // Agregando el correo electrónico
-      const notasCliente = document.getElementById('notasCliente').value.trim();  // Agregando notas adicionales del cliente
-
+      
       if (!nombreCliente || !telefonoCliente || !direccionCliente) {
         alert('Por favor, completa todos los campos.');
         return;
@@ -281,8 +279,6 @@ document.addEventListener('DOMContentLoaded', function () {
           nombre: nombreCliente,
           telefono: telefonoCliente,
           direccion: direccionCliente,
-          email: emailCliente,  // Añadiendo el correo electrónico
-          notas: notasCliente  // Añadiendo las notas del cliente
         },
         platos: contarPlatos(cart)
       };
