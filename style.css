@@ -549,3 +549,8 @@ background-color: var(--color-main-2);
     }
 }
 
+#Empleados {
+    grid-area: 1 / 2 / 1 / 3;
+    width: 60%;
+    height: 100%;
+}

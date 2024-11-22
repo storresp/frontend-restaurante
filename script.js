@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const botonInicio = document.getElementById('BotonInicio');
   const BotonAlMenu = document.getElementById('BotonAlMenu');
+  const botonEmpleados = document.getElementById('Empleados');
   const BotonIntegrantes = document.getElementById("BotonIntegrantes");
   const botonesCategoria = {
     'Entrada': document.getElementById('Entradas'),
@@ -10,6 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
     'Todo': document.getElementById('Todo')
   };
   
+  if (botonEmpleados) {
+    botonEmpleados.addEventListener('click', ()=> {
+      window.location.href = 'https://storresp.github.io/frontend-empleados/';
+    });
+  }
+
   if (BotonIntegrantes) {
     BotonIntegrantes.addEventListener('click', () => {
       window.location.href = 'integrantes.html';
