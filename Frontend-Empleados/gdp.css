@@ -1,0 +1,186 @@
+/* Importación de la tipografía Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* Aplicación de la fuente global */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: #f8f9fa; /* Fondo claro */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #4141e0, #b5e2e7, #fdf6f0, #ff784f); /* Paleta animada */
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite; /* Animación del fondo */
+}
+
+/* Animación del fondo */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.order-management-container {
+    width: 90%;
+    margin: 30px auto;
+    background-color: rgba(253, 246, 240, 0.9); /* Beige claro translúcido */
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 20px;
+}
+
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    filter: brightness(0.7); 
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.header-overlay h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.header-overlay p {
+    font-size: 16px;
+    margin: 10px 0 0 0;
+}
+
+/* Filtros */
+.filters {
+    padding: 20px;
+    text-align: center;
+}
+
+.filters h2 {
+    font-size: 22px;
+    color: #005377; /* Azul marino */
+    margin-bottom: 15px;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-buttons button {
+    padding: 10px 20px;
+    background-color: #78c2c4; /* Azul claro */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-buttons button:hover {
+    background-color: #ff784f; /* Naranja */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    flex-grow: 1;
+}
+
+.search-container button {
+    padding: 10px 15px;
+    background-color: #78c2c4; /* Azul claro */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #ff784f; /* Naranja */
+}
+
+/* Tabla de pedidos */
+.orders {
+    padding: 20px;
+    text-align: center;
+}
+
+.orders h2 {
+    font-size: 22px;
+    color: #005377; /* Azul marino */
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+thead th {
+    background-color: #005377; /* Azul marino */
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+tbody td .action-button {
+    padding: 5px 10px;
+    background-color: #78c2c4; /* Azul claro */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+tbody td .action-button:hover {
+    background-color: #ff784f; /* Naranja */
+}
+
+#Logout {
+    background-color: rgb(138, 60, 60);
+}

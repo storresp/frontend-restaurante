@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Pedidos</title>
+    <link rel="stylesheet" href="gdp.css">
+</head>
+<body>
+    <div class="order-management-container">
+        <!-- Encabezado con imagen -->
+        <header class="header">
+            <img src="restaurante3.avif" alt="Encabezado" class="header-image">
+            <div class="header-overlay">
+                <h1>Gestión de Pedidos</h1>
+                <p>Administra y controla todos los pedidos en un solo lugar.</p>
+            </div>
+        </header>
+
+        <!-- Filtros -->
+        <section class="filters">
+            <h2>Filtros</h2>
+            <div class="filter-buttons">
+                <button id="Logout">Cerrar Sesión</button>
+                <button id="filter-pending">Ver Pedidos Pendientes</button>
+                <button id="filter-attended">Ver Pedidos Atendidos</button>
+                <div class="search-container">
+                    <input type="text" id="client-search" placeholder="Buscar por cliente">
+                    <button id="search-client">Buscar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabla de Pedidos -->
+        <section class="orders">
+            <h2>Lista de Pedidos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-list">
+                    <!-- Los pedidos se cargan aquí  -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="gestion.js"></script>
+</body>
+</html>

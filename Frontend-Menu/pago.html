@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Menu</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="script.js"></script>
+  </head>
+
+  <body class="PagosContainer">
+    <header id="PagosHeader">
+        <nav id="PagosNav">
+          <button id="BotonAlMenu">
+              Menu
+          </button>
+          <button id="BotonInicio">
+            Inicio
+          </button>
+        </nav>
+    </header>
+
+    <main id="PagosMain">
+      <h1 id="titleMenu"> Información de Pago </h1>
+      <form id="paymentForm">
+        <label for="nombreCliente">Nombre del cliente:</label>
+        <input type="text" id="nombreCliente" name="nombreCliente" required><br><br>
+
+        <label for="telefonoCliente">Teléfono del cliente:</label>
+        <input type="tel" id="telefonoCliente" name="telefonoCliente" required pattern="{10}" placeholder="1234567890"><br><br>
+
+        <label for="direccionCliente">Dirección del cliente:</label>
+        <input type="text" id="direccionCliente" name="direccionCliente" required><br><br>
+
+        <button id="Pagar" type="submit">Confirmar Pago</button>
+      </form>
+    </main>
+
+    <aside id="resumenPago">
+
+      <div id="carritoPago">
+        
+        <ul id="Items">
+          
+        </ul>
+      </div>
+
+      <div id="Datitos">
+
+            <div id="Resumen">
+                <p> Items:</p>
+                <p> Total </p>
+            </div>
+        </div>
+
+    </aside>
+  </body>
+</html>

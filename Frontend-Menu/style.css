@@ -1,0 +1,551 @@
+:root{
+    --color-accent-1: rgb(70, 65, 63);
+    --color-accent-2: rgb(120, 75, 70); 
+    --color-main: rgb(200, 190, 180); 
+    --color-main-2: rgb(160, 140, 125); 
+    --color-maroon-1: rgb(130, 50, 48); 
+    --color-maroon-2: rgb(180, 90, 85); 
+    color: var(--color-accent-1);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(230, 230, 230); /* Light Off-White */
+}
+
+button {
+    padding: 0.3em 1.2em;
+    margin: 0 0.2em 0.2em 0;
+    border-radius: 2em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 300;
+    color: #FFFFFF;
+    background-color: var(--color-maroon-1);
+    text-align: center;
+    transition: all 0.2s;
+    border: 0;
+}
+
+button:hover {
+    background-color: var(--color-accent-1);
+}
+
+@media all and (max-width:30em){
+    button{
+    display:block;
+    margin:0.2em auto;
+    }
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 0.4fr;
+    grid-template-rows: 0.5fr repeat(3, 1fr);
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color-accent-2);
+    background-image: url("FondoMenu.jpg");
+}
+
+header {
+    grid-area: 1 / 1 / 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    background-color: var(--color-main-2);
+}
+
+img {
+    width: 4rem;
+    height: 5rem;
+}
+
+nav {
+    display: grid;
+    grid-area: 1 / 1 / 2 /2;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 0.7rem;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+    padding: 1rem;
+    
+    #Logo{
+        grid-column: 1 / 2;
+        place-self: center;
+    }
+
+    #Entradas,
+    #PlatoFuerte,
+    #Postre,
+    #Bebidas,
+    #Todo {
+        background-color: var(--color-maroon-2);
+        border-radius: 0.5rem;
+    }
+
+    #Entradas:hover,
+    #PlatoFuerte:hover,
+    #Postre:hover,
+    #Bebidas:hover,
+    #Todo:hover {
+        background-color: var(--color-maroon-1);
+
+        
+    }
+
+    #Entradas { grid-column: 2 / 3; }
+    #PlatoFuerte { grid-column: 3 / 4; }
+    #Postre { grid-column: 4 / 5; }
+    #Bebidas { grid-column: 5 / 6; }
+    #Todo { grid-column: 6 / 7; }
+    #BotonInicio { grid-column: 7 / 8; }
+
+    button {
+        place-self: center;
+        border-radius: 1rem;
+        margin: 0;
+        height: 2.4rem;
+        width: 5.5rem;
+        background-color: var(--color-maroon-1);
+        color: #FFFFFF;
+    }
+}
+
+footer {
+    grid-area: 5 / 1 / 6 / 3;
+}
+
+#menuCarrito, #resumenPago {
+    display: grid;
+    overflow: auto;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 0.3fr;
+    grid-area: 2 / 2 / 5 / 3;
+    margin: 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-main);
+    font-size: 0.8rem;
+    padding: 1rem;
+
+    #Carrito {
+        display: grid;
+        grid-area: 1 / 1 / 2 / 2;
+        overflow: auto;
+        -ms-overflow-style: none;  
+        scrollbar-width: none;
+        position: inherit;
+    
+        #Compras {
+            grid-area: 1 / 1 / 2 / 2;
+            place-self: center;
+            place-items: center;
+            list-style-type: none;
+        
+            li {
+                display: grid;
+                grid-template-columns: 0.1fr 1fr;
+                padding: 1rem;
+                background-color: var(--color-main-2);
+                border-left: 4px solid var(--color-maroon-1); 
+                border-radius: 1rem;
+                margin: 0.5rem;
+                column-gap: 0.4rem;
+        
+                span {
+                    grid-area: 1 / 2 / 2 / 3;
+                    align-self: center;
+                }
+        
+                button {
+                    grid-area: 1 / 1 / 2 / 2;
+                    place-self: center;
+                }
+            }
+        }
+    }
+    
+    #Datitos {
+        display: grid;
+        grid-area: 2 / 1 / 3 / 2;
+        grid-template-columns: 2fr;
+        grid-template-rows: 2fr;
+        padding: 0.3rem;
+        position: relative;
+    
+        #Resumen {
+            grid-area: 2 / 1 / 3 / 3;
+        }
+    
+        #PayRedir, #Pagar {
+            line-height: 0px;
+            text-align: center;
+            grid-area: 1 / 1 / 2 / 2;
+            width: 90%;
+            height: 80%;
+            background-color: var(--color-maroon-2);
+        }
+    
+        #Vaciar {
+            padding: 0.8rem;
+            line-height: 0px;
+            text-align: center;
+            grid-area: 1 / 2 / 2 / 3;
+            width: 100%;
+            height: 80%;
+            background-color: var(--color-maroon-2);
+        }
+    
+        #Pagar:hover, #Vaciar:hover, #PayRedir:hover {
+            background-color: var(--color-maroon-1);
+        }
+    }
+}
+
+main {
+    #titleMenu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-maroon-1); /* Deep Maroon */
+    }
+}
+
+#MenuMain, #PagosMain{
+    grid-area: 2 / 1 / 5 / 2;
+    margin: 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--color-main);
+    overflow: auto;
+    font-size: 0.8rem;
+
+    #Menu {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 0.2rem;
+        column-gap: 0.2rem;
+        font-size: 0.8rem;
+        list-style-type: none;
+        margin: 2rem;
+        padding: 0;
+        place-content: center;
+        -ms-overflow-style: none;  
+        scrollbar-width: none;
+      
+        li {
+            border-left: 4px solid var(--color-maroon-1);
+            border-radius: 2rem;
+            margin: 0.5rem;
+            display: grid;
+            grid-template-rows: auto;
+            place-self: center;
+            place-items: center;
+            background-color: var(--color-main-2);
+            padding: 1.5rem;
+            width: 40%;
+            height: 90%;
+
+            div {
+                width: 100%;
+                height: 15rem;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 2rem;
+                }
+            }
+        }
+    }
+}
+
+
+#MenuMain::-webkit-scrollbar {
+    display: none;
+}
+
+#MenuCarrito::-webkit-scrollbar, #resumenPago::-webkit-scrollbar {
+    display: none;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    padding: 1rem;
+
+    div {
+        place-self: center;
+        background-color: var(--color-main);
+        border-radius: 2rem;
+        padding: 1rem;
+        align-self: center;
+
+        img {
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+}
+
+
+#IndexHeader, #PagosHeader {
+    grid-area: 1 / 1 / 2 / 4;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+
+    #IndexNav, #PagosNav{
+        display: flex;
+        place-items: center;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            width: 8rem;
+            height: 2rem;
+        }
+    }
+}
+
+.IndexContainer {
+    margin: 0;
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(6 1fr);
+    background-image: "FondoIndedx.jpg";
+}
+
+#Introduccion {
+    display: flex;
+    grid-area: 2 / 1 / 5 / 4;
+    display: flex;
+    background-image: url("FondoIndex.jpg");
+    column-gap: 0.7rem;
+    row-gap: 0.7rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-flow:wrap;
+
+
+    div {
+        display: grid;
+        background-color: var(--color-main);
+        margin: 2rem;
+        place-self: center;
+        place-items: center;
+        padding: 2rem;
+        border-radius: 2rem;
+
+        h1 {
+            text-align: center;
+            color: var(--color-maroon-1); 
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        img {
+            width: 6rem;
+            height: 6rem;
+        }
+    }
+}
+
+#IndexFooter {
+display: grid;
+grid-area: 5 / 1 / 6 / 4;
+background-color: var(--color-main-2);
+}
+
+#IntegrantesMain {
+    grid-area: 2 / 1 / 5 / 4;
+    display: flex;
+    background-image: url("FondoIndex.jpg");
+    column-gap: 0.7rem;
+    row-gap: 0.7rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-flow:wrap;
+
+    .xd {
+        background-color: var(--color-main);
+        border-radius: 1rem;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns:none;
+        margin: 1rem;
+        padding: 1rem;
+        width: 10rem;
+        height: 15rem;
+
+        #Nombre {
+            font-weight: 600;
+            font-size: 1.4rem;
+            text-align: center;
+            grid-area: auto;
+        }
+
+        #Desc {
+            grid-area: auto;
+            text-align: center;
+        }
+    }
+
+    #Majo {
+        grid-template-rows: 0.4fr 0.4fr 1fr;
+    }
+
+    img {
+        grid-area: auto;
+        place-self: center;
+        width: 60%;
+        height: 60%;
+        border-radius: 1rem;
+        border: 4px solid var(--color-maroon-1);
+    }
+    
+    h1 {
+        text-align: center;
+        color: var(--color-maroon-1); 
+    }
+}
+
+
+
+.PagosContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr repeat(3, 1fr);
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(FondoPago.jpg);
+
+    #PagosMain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-wrap: wrap;
+        column-gap: 3rem;
+        margin: 1rem;
+
+        #paymentForm {
+            margin: 0.4rem;
+        }
+      }
+
+    #resumenPago{
+        margin: 1rem;
+        grid-area: 2 / 2 / 5 / 3;
+        grid-template-rows: 1fr 0.5fr;
+    }
+}
+
+#PagosMain, #resumenPago {
+    margin-bottom: 20%;
+}
+
+@media only screen and (max-width: 900px) {
+    .container, .PagosContainer{
+        display: grid; 
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.6fr repeat(3, 1fr) 0.6fr;
+    }
+
+    .PagosContainer {
+        #PagosMain{
+            grid-area: 2 / 1 / 4 / 2;
+            height: auto;
+        }
+
+        #PagosMain {
+            margin-bottom: 0%;
+        }
+    
+        #resumenPago{
+            grid-area: 4 / 1 / 7 / 2;
+            height: auto;
+            margin-bottom: 0%;
+        }   
+    }
+    
+    nav {
+        display: flex;
+        grid-area: 1 / 1 / 2 / 2;
+        column-gap: 0.7rem;
+        row-gap: 0.7rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        
+        #Logo{
+            display: none;
+        }
+    
+        button {
+            place-self: center;
+            border-radius: 1rem;
+            margin: 0;
+            height: 2.4rem;
+            background-color: var(--color-maroon-1); /* Deep Maroon */
+        }
+    }
+
+    #MenuMain{
+        grid-area: 2 / 1 / 4 / 2;
+        height: auto;
+
+        #Menu {
+            li {
+                width: 70%;
+                height: 80%;
+            }
+        }
+    }
+
+    #menuCarrito{
+        grid-area: 4 / 1 / 6 / 2;
+        grid-template-columns: auto;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        grid-template-rows: 40% 20%;
+
+    }
+
+    header, #PagosHeader {
+        grid-area: 1 / 1 / 2 / 2;
+        height: 0.6fr;
+    }
+    
+    .IndexContainer {
+        margin: 0;
+        display: grid;
+        min-height: 100vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6 1fr);
+    }
+
+    #PagosNav {
+        display: flex;
+        grid-area: 1 / 1 / 2 / 2;
+        column-gap: 0.7rem;
+        row-gap: 0.7rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
